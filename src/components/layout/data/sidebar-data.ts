@@ -1,0 +1,123 @@
+import {
+  IconChecklist,
+  IconLayoutDashboard,
+
+  IconMessages,
+
+  IconPackages,
+
+  IconUserCog,
+
+  IconUsers,
+} from '@tabler/icons-react'
+import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
+import { type SidebarData } from '../types'
+
+export const sidebarData: SidebarData = {
+  user: {
+    name: 'OPESSOCIUS',
+    email: '',
+    avatar: '/avatars/shadcn.jpg',
+  },
+  teams: [
+    {
+      name: 'OPESSOCIUS',
+      logo: Command,
+    },
+    {
+      name: 'Acme Inc',
+      logo: GalleryVerticalEnd,
+    },
+    {
+      name: 'Acme Corp.',
+      logo: AudioWaveform,
+    },
+  ],
+  navGroups: [
+    {
+      title: 'General',
+      items: [
+        {
+          title: 'Dashboard',
+          url: '/user/dashboard',
+          icon: IconLayoutDashboard,
+        },
+        {
+          title: 'Active Investments',
+          url: '/user/active-investment',
+          icon: IconChecklist,
+        },
+        {
+          title: 'Investment Area',
+          url: '/user/investment-area',
+          icon: IconUsers,
+        },
+        {
+          title: 'Profile',
+          url: '/user/profile',
+          icon: IconUserCog,
+        },
+      ],
+    },
+  ],
+}
+
+export const adminSidebarData: SidebarData = {
+  user: {
+    name: 'OPESSOCIUS',
+    email: '',
+    avatar: '/avatars/admin.jpg',
+  },
+  teams: [
+    {
+      name: 'OPESSOCIUS',
+      logo: Command,
+    },
+    {
+      name: 'Acme Inc',
+      logo: GalleryVerticalEnd,
+    },
+    {
+      name: 'Acme Corp.',
+      logo: AudioWaveform,
+    },
+  ],
+  navGroups: [
+    {
+      title: 'General',
+      items: [
+        {
+          title: 'Dashboard',
+          url: '/admin/dashboard',
+          icon: IconLayoutDashboard,
+        },
+        {
+          title: 'Withdraw Requests',
+          url: '/admin/withdraw-request',
+          icon: IconChecklist,
+        },
+        {
+          title: 'Web Analytics',
+          url: '/admin/web-analytics',
+          icon: IconPackages,
+        },
+        {
+          title: 'New Investments',
+          url: '/admin/new-investment',
+          badge: '3',
+          icon: IconMessages,
+        },
+        {
+          title: 'Total Users',
+          url: '/admin/total-users',
+          icon: IconUserCog,
+        },
+        {
+          title: 'Create Investment',
+          url: '/admin/create-investment',
+          icon: IconPackages,
+        },
+      ],
+    },
+  ],
+}
