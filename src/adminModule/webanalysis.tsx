@@ -2,38 +2,18 @@ import { SearchProvider } from '@/context/search-context'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import { AppSidebar } from '@/components/layout/app-sidebar'
 import { useState, useEffect } from 'react'
-import {
-  IconAdjustmentsHorizontal,
-  IconSortAscendingLetters,
-  IconSortDescendingLetters,
-} from '@tabler/icons-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
+
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
 import { ProfileDropdown } from '@/components/profile-dropdown'
-import { Search } from '@/components/search'
+
 import { ThemeSwitch } from '@/components/theme-switch'
-import { apps } from '@/config/apps'
+
 import Cookies from 'js-cookie'
 import { adminSidebarData } from '@/components/layout/data/sidebar-data'
 import { Card, CardContent } from '@/components/ui/card'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, BarChart, Bar, PieChart, Pie, Cell } from 'recharts'
 import { toast } from 'sonner'
-
-const appText = new Map<string, string>([
-  ['all', 'All Apps'],
-  ['connected', 'Connected'],
-  ['notConnected', 'Not Connected'],
-])
 
 // Devices data will be fetched from API
 
@@ -45,9 +25,6 @@ const deviceColors = ['#8884d8', '#82ca9d'];
 
 export default function AdminAppsAnalytics() {
   const defaultOpen = Cookies.get('sidebar_state') !== 'false'
-  const [sort, setSort] = useState('ascending')
-  const [appType, setAppType] = useState('all')
-  const [searchTerm, setSearchTerm] = useState('')
   const [graph, setGraph] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -55,21 +32,6 @@ export default function AdminAppsAnalytics() {
   const [countriesData, setCountriesData] = useState<any[]>([])
   const [latestLogins, setLatestLogins] = useState<any[]>([])
   const [statsError, setStatsError] = useState<string | null>(null)
-
-  const filteredApps = apps
-    .sort((a, b) =>
-      sort === 'ascending'
-        ? a.name.localeCompare(b.name)
-        : b.name.localeCompare(a.name)
-    )
-    .filter((app) =>
-      appType === 'connected'
-        ? app.connected
-        : appType === 'notConnected'
-          ? !app.connected
-          : true
-    )
-    .filter((app) => app.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
   useEffect(() => {
     const fetchGraph = async () => {
@@ -206,7 +168,7 @@ export default function AdminAppsAnalytics() {
                     <ResponsiveContainer width="100%" height={250}>
                       <PieChart>
                         <Pie data={devicesData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
-                          {devicesData.map((entry, idx) => (
+                          {devicesData.map((_entry, idx) => (
                             <Cell key={`cell-${idx}`} fill={deviceColors[idx % deviceColors.length]} />
                           ))}
                         </Pie>

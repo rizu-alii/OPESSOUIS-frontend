@@ -28,8 +28,8 @@ function TotalUsers() {
   const defaultOpen = Cookies.get('sidebar_state') !== 'false'
   const [users, setUsers] = useState<any[]>([])
   const [nameSearch, setNameSearch] = useState('')
-  const [emailSearch, setEmailSearch] = useState('')
-  const [filter, setFilter] = useState('')
+  const [emailSearch, _setEmailSearch] = useState('')
+  const [filter, _setFilter] = useState('')
   const [apiMessage, setApiMessage] = useState<string | null>(null)
   const [selectedUser, setSelectedUser] = useState<any | null>(null)
   const [profileDialogOpen, setProfileDialogOpen] = useState(false)

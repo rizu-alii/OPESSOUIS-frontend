@@ -30,7 +30,8 @@ import { NavCollapsible, NavItem, NavLink, type NavGroup } from './types'
 
 export function NavGroup({ title, items }: NavGroup) {
   const { state } = useSidebar()
-  const href = useLocation({ select: (location) => location.href })
+  const location = useLocation()
+  const href = location.pathname + location.search
   return (
     <SidebarGroup>
       <SidebarGroupLabel>{title}</SidebarGroupLabel>

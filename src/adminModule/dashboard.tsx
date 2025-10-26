@@ -14,7 +14,7 @@ import { AppSidebar } from '@/components/layout/app-sidebar'
 import Cookies from 'js-cookie'
 import { adminSidebarData } from '@/components/layout/data/sidebar-data'
 import { IconUsers, IconChecklist, IconPackages, IconLayoutDashboard, IconBrowserCheck } from '@tabler/icons-react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 

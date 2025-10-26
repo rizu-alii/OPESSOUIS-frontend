@@ -415,35 +415,4 @@ export default function Users() {
   )
 }
 
-const topNav = [
-  {
-    title: 'Overview',
-    href: 'users/overview',
-    isActive: true,
-    disabled: false,
-  },
-  {
-    title: 'All Users',
-    href: 'users/all',
-    isActive: false,
-    disabled: false,
-  },
-  {
-    title: 'Roles & Permissions',
-    href: 'users/roles',
-    isActive: false,
-    disabled: false,
-  },
-  {
-    title: 'Teams',
-    href: 'users/teams',
-    isActive: false,
-    disabled: false,
-  },
-  {
-    title: 'Activity Log',
-    href: 'users/activity',
-    isActive: false,
-    disabled: false,
-  },
-] 
+ 

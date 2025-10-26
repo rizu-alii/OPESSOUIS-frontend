@@ -33,8 +33,7 @@ export function TopNav({ className, links, ...props }: TopNavProps) {
               <DropdownMenuItem key={`${title}-${href}`} asChild>
                 <Link
                   to={href}
-                  className={!isActive ? 'text-muted-foreground' : ''}
-                  disabled={disabled}
+                  className={`${!isActive ? 'text-muted-foreground' : ''} ${disabled ? 'opacity-50 pointer-events-none' : ''}`}
                 >
                   {title}
                 </Link>
@@ -55,8 +54,7 @@ export function TopNav({ className, links, ...props }: TopNavProps) {
           <Link
             key={`${title}-${href}`}
             to={href}
-            disabled={disabled}
-            className={`hover:text-primary text-sm font-medium transition-colors ${isActive ? '' : 'text-muted-foreground'}`}
+            className={`hover:text-primary text-sm font-medium transition-colors ${isActive ? '' : 'text-muted-foreground'} ${disabled ? 'opacity-50 pointer-events-none' : ''}`}
           >
             {title}
           </Link>
